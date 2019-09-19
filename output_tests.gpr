@@ -1,25 +1,28 @@
+with "aws";
+
 with "../common/shared.gpr";
 
 project Output_Tests is
 
   for Create_Missing_Dirs use "True";
 
-  AUnit_Path := "../aunit/include/aunit";
-
   Src_Dirs := ();
   Src_Dirs := Src_Dirs & "./src_tests";
 
   Src_Dirs := Src_Dirs & "./src_lib";
+  Src_Dirs := Src_Dirs & "../code_generator_model/src_lib";
 
-  Src_Dirs := Src_Dirs & "../utils_assertions/src";
+  Src_Dirs := Src_Dirs & "../utils/src_lib";
 
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/framework";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/containers";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/reporters";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/framework";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/framework/zfpexception";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/framework/calendar";
-  -- Src_Dirs := Src_Dirs & AUnit_Path & "/framework/nativememory";
+  AUnit_Path := "../aunit/include/aunit/";
+
+  Src_Dirs := Src_Dirs & (AUnit_Path & "framework");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "containers");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "reporters");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "framework");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "framework/zfpexception");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "framework/calendar");
+  Src_Dirs := Src_Dirs & (AUnit_Path & "framework/nativememory");
 
   for Source_Dirs use Src_Dirs;
 
